@@ -9,4 +9,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Action de Teste
-        run: echo "Action executada apenas em mainte"
+        run: echo "Action executada apenas em maintenence"
