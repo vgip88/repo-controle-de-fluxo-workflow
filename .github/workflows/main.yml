@@ -9,4 +9,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Action de Teste
-        run: echo "Action executada apenas em main 7ghghg teste 200000 60000 889 777"
+        run: echo "Action executada apenas em mainte"
