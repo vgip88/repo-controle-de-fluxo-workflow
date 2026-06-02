@@ -1,9 +1,11 @@
+#só vai disparar se tiver uma alteração no source
+
 name: Workflow Evento
 on:
   push:
     branches: ["main", "features/*"]
-    tags:
-      - v*
+    paths:
+      - "src/**"
 jobs:
   teste:
     runs-on: ubuntu-latest
