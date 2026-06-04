@@ -1,14 +1,19 @@
-#só vai disparar se tiver uma alteração no source
-
-name: Workflow Evento
+name: Workflow matriz
 on:
-  push:
-    branches: ["main", "features/*"]
-    paths:
-      - "src/**"
+  workflow_dispatch:
 jobs:
-  teste:
-    runs-on: ubuntu-latest
+  exemplo-fluxo-execucao:
+    strategy:
+      matrix:
+        versao: [16, 18, 20]
+        plataforma: ["windows", "ubuntu"]
+    runs-on: "${{ matrix.plataforma }}-latest"
     steps:
-      - name: Action de Teste
-        run: echo "Action executada apenas em maintenence"
+      - name: Instalação do node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.versao }}
+      - name: Exibição da versão e da plataforma
+        run: |
+          node --version
+          echo ${{ runner.os }}
